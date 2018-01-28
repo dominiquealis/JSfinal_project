@@ -1,0 +1,24 @@
+<!-- file for editing jobs on main screen  -->
+
+
+
+	<div class="row hiddenedit ">
+		  		<form method="POST" action="/<%= job.id %>/editmainview" class="w-100 p-3">
+
+		  				<div class="form-group">
+		  					<label for="name">Job Title:</label>
+					    	<input type="text" class="form-control" name="title" value="<%= job.title %>">
+					    </div>
+					    <div class="form-group">
+					    	<label for="phone_number">Company:</label>
+					    	<input type="text"  class="form-control" name="business" value="<%= job.business %>">
+					    </div>
+					    <div class="form-group">
+					    	<label for="website_url">Website Source:</label>
+					    	<input type="text"  class="form-control" name="website_source" value="<%= job.website_source %>">
+					    </div>
+						  <div class="form-group">
+			    			<button class="btn btn-success btn-sm" role="button" aria-disabled="true">Submit Changes</button>
+			    		</div>
+				</form>
+	</div>

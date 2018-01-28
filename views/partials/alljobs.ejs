@@ -1,0 +1,80 @@
+
+	<div class="container-fluid">
+		<div class="col-md-8">
+	  	<% jobs.reverse().forEach(function(job) { %>
+	  		<script>
+	  			console.log(<%= job.archive %>);
+	  		</script>
+			<div class="row">
+	  				<div class="card-block">
+						<div class="card border-dark mb-3">
+						<div class="card-body">
+<!-- inserting google maps embed	 -->
+						<iframe
+						  width="600"
+						  height="200"
+						  frameborder="0" style="border:0"
+						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBlMyTOW7JVe-OFAQtUXRnREKsBiI8R0WY
+						    &q=<%=job.location %> + <%= encodeURIComponent(job.business) %> " allowfullscreen>
+						</iframe>
+
+<!-- end google maps embed -->
+
+							<h2 class="card-title"><%= job.title %></h5>
+							<p class="card-text"> <h4>Company: <%=job.business %></h4></p>
+							<p class="card-text"> <h5>Job Posting Source: <a href="<%=job.website_source %>"><%=job.website_source %></a></h5></p>
+							<p class="card-text text-secondary"> Date Applied: <%=job.dateapplied %></p> 
+							<p class="card-text text-secondary"> Location: <%=job.location %></p>  
+<!-- this will toggle the form to submit and view comments          -->			
+							<button class="btn btn-primary btn-sm commentbutton">Add/View Comments</button>
+
+								<div class="commentholder">
+									<form method="POST" action="/<%= job.id %>/createcommentmainview">
+
+		  								<div class="form-group p-2">
+		  									<label for="name" class="font-weight-bold"><h4>Comment:</h4></label>
+					    					<input type="text" class="form-control" name="notes">
+					    				</div>
+			 			  				<div class="form-group">
+			    							<input type="submit" class="btn btn-success btn-sm value="Submit Comment">
+			    						</div>
+									</form>
+									<div>
+										<h4>Past Updates:</h4>
+										<% job.comments.reverse().forEach(function(comment, index){ %>
+											<div class="row p-2 <%= index > 4 ?  'd-none' : '' %>">
+												<span class="border p-2 rounded"><p><h6>Notes:</h6><%= comment.notes %></p>
+												<p class="text-muted"><h7>Dates Posted:</h7><%= comment.update %></p>
+											</span>
+												
+
+											</div>
+										<% })%>
+									</div>
+								</div>
+
+
+<!-- this will hold the form to edit an entry		 -->	
+ 							<button class="btn btn-primary btn-sm editbutton">Edit Listing</button>
+ 								<div class="editjobs">
+ 									<% include editjobs %>
+ 								</div>
+
+<!--  								<button class="btn btn-primary btn-sm archivebutton d-none" id="archbutton">Archive</button> -->
+
+
+<!-- code to delete an entry -->
+								<form method="POST" class="delete" action="/jobs/delete/<%= job.id %>">
+            						<input type="hidden" name="_method" value="DELETE">
+           							 <input type="submit" class=" btn btn-sm btn-danger" value="Delete">
+        						</form>
+<!-- end code to delete an entry -->
+	  					</div>
+						</div>
+					</div>
+
+	  		</div>
+	  		<% }) %>
+	  	</div>
+	</div>
+

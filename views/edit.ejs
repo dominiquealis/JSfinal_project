@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+	<meta charset="UTF-8">
+	<title>Edit</title>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<h1>Edit Existing Entry</h1>
+				</div>
+
+		  		<form method="POST" action="/jobs/confirm/<%= jobs.id %>">
+
+		  				<div class="form-group">
+		  					<label for="name">Job Title:</label>
+					    	<input type="text" class="form-control" name="title" value="<%= jobs.title %>">
+					    </div>
+					    <div class="form-group">
+					    	<label for="phone_number">Company:</label>
+					    	<input type="text"  class="form-control" name="business" value="<%= jobs.business %>">
+					    </div>
+					    <div class="form-group">
+					    	<label for="website_url">Source:</label>
+					    	<input type="text"  class="form-control" name="website_source" value="<%= jobs.website_source %>">
+					    </div>
+						  <div class="form-group">
+			    			<button class="btn btn-primary btn-primary" role="button" aria-disabled="true">Submit Changes</button>
+			    		</div>
+						</div>
+				</form>
+			</div>
+	</div>
+</div>
+
+<footer>
+	<% include partials/footer%>
+</footer>
+
+</body>
+</html>
+
+
+	
+</body>
+</html>
+

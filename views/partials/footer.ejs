@@ -1,0 +1,97 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+
+  <script>
+
+// changes text of comment button
+$( ".commentbutton" ).click(function() {
+    if ($(this).text() === 'Add/View Comments') {
+         $(this).text('Hide Comments');
+    }
+    else {
+        $(this).text('Add/View Comments');
+    };
+
+  $(this).next().toggle("slow");
+});
+
+
+
+//changes text edit button
+$(".editbutton").click(function() {
+      if ($(this).text() === 'Edit Listing') {
+         $(this).text('Collapse Edit');
+    }
+    else {
+        $(this).text('Edit Listing');
+    };
+
+  $(this).next().toggle("slow");
+});
+
+
+
+//adds class for archive look, not totally there yet
+$(".archivebutton").click(function() {
+  $(this.parentNode).addClass("archive");
+    console.log("working");
+});
+
+
+
+  </script>
+
+
+
+
+<!-- 
+     <div class="container-fluid bg-primary py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+            <div class="row py-0">
+          <div class="col-sm-1 hidden-md-down">
+              <a class="bg-circle bg-info" href="#">
+                <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+              </a>
+            </div>
+            <div class="col-sm-11 text-white">
+                <div><h4>  Contact Us</h4>
+                    <p>   <span class="header-font">yap.com</span></p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="d-inline-block">
+            <div class="bg-circle-outline d-inline-block" style="background-color:#3b5998">
+              <a href="https://www.facebook.com/"><i class="fa fa-2x fa-fw fa-facebook text-white"></i>
+		</a>
+            </div>
+            <div class="bg-circle-outline d-inline-block" style="background-color:#4099FF">
+              <a href="https://twitter.com/">
+                <i class="fa fa-2x fa-fw fa-twitter text-white"></i></a>
+            </div>
+
+            <div class="bg-circle-outline d-inline-block" style="background-color:#0077B5">
+              <a href="https://www.linkedin.com/company/">
+                <i class="fa fa-2x fa-fw fa-linkedin text-white"></i></a>
+            </div>
+            <div class="bg-circle-outline d-inline-block" style="background-color:#d34836">
+              <a href="https://www.google.com/">
+                <i class="fa fa-2x fa-fw fa-google text-white"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <p class="text-center"> Copyright © Yap. All rights reserved. </p>
+ -->
